@@ -1,6 +1,9 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
+  def home
+  end
+
   # GET /teachers
   # GET /teachers.json
   def index
