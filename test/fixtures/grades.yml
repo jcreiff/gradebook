@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  student_id: students(:one).id
+  assignment_name: Final Exam
+  score: 95
+  date: <%= Date.today %>
+
+two:
+  student_id: students(:two).id
+  assignment_name: Research Paper
+  score: 93
+  date: <%= Date.today %>
