@@ -8,6 +8,8 @@ class StudentsController < ApplicationController
 
   # GET /students/1
   def show
+    @parents = Parent.where(student_id: @student.id)
+    @grades = Grade.where(student_id: @student.id)
   end
 
   # GET /students/new
