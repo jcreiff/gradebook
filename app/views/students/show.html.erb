@@ -21,6 +21,7 @@
   <% end%>
 </p>
 
+<%= link_to 'Add Parent', new_parent_path(@student) %>
 
 <h1>Grades for <%= @student.name %></h1>
 
@@ -47,6 +48,8 @@
   </tbody>
 </table>
 
+<%= link_to 'Add Grade', new_grade_path(@student) %>
+<br>
 
 <%= link_to 'Edit', edit_student_path(@student) %> |
 <%= link_to 'Back', students_path %>
