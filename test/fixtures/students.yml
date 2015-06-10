@@ -2,12 +2,12 @@
 
 one:
   teacher_id: teachers(:one).id
-  name: Sarah
+  name: Sarah Ferrell
   email: smf@smf.com
   password_digest: <%= BCrypt::Password.create("studentone") %>
 
 two:
   teacher_id: teachers(:two).id
-  name: Chris
+  name: Chris Givens
   email: csg@csg.com
   password_digest: <%= BCrypt::Password.create("studenttwo") %>
