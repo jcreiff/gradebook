@@ -11,9 +11,17 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @teacher.password_digest %>
+  <% if @students %>
+    <strong>Students: </strong>
+    <br>
+    <% @students.each do |student| %>
+      <tr>
+        <td><%= student.name %></td>
+      </tr>
+    <% end %>
+  <% end%>
 </p>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<%= link_to 'Home', root_path %> |
+<%= link_to 'Teacher Index', teachers_path %> |
+<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %> 

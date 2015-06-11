@@ -13,6 +13,7 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    @students = Student.all.where(teacher_id: params[:id])
   end
 
   # GET /teachers/new
@@ -60,6 +61,6 @@ class TeachersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def teacher_params
-      params.require(:teacher).permit(:name, :email, :password_digest)
+      params.require(:teacher).permit(:name, :email, :password, :password_confirmation)
     end
 end
