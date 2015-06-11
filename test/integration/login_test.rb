@@ -21,4 +21,35 @@ class LoginTest < ActionDispatch::IntegrationTest
     follow_redirect!
     assert response.body.match "Logout Successful."
   end
+
+  test "student can login and logout" do
+    get sessions_login_path
+    assert_select "input[type=password]", 1
+    post sessions_login_path, email: "smf@smf.com", password: "studentone"
+    assert_redirected_to root_path
+    follow_redirect!
+    assert response.body.match "Login Successful."
+    get grades_path
+    assert_response :success
+    assert response.body.match "Score"
+    get sessions_logout_path
+    follow_redirect!
+    assert response.body.match "Logout Successful."
+  end
+
+  test "parent can login and logout" do
+    get sessions_login_path
+    assert_select "input[type=password]", 1
+    post sessions_login_path, email: "mike@mike.com", password: "parentone"
+    assert_redirected_to root_path
+    follow_redirect!
+    assert response.body.match "Login Successful."
+    get grades_path
+    assert_response :success
+    assert response.body.match "Score"
+    get sessions_logout_path
+    follow_redirect!
+    assert response.body.match "Logout Successful."
+  end
+
 end
