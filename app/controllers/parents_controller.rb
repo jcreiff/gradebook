@@ -3,7 +3,13 @@ class ParentsController < ApplicationController
 
   # GET /parents
   def index
-    @parents = Parent.all
+    @students = Student.all.where(teacher_id: session[:teacher_id])
+    @parents = []
+
+    @students.each do |s|
+      @parents += s.parents
+    end
+
   end
 
   # GET /parents/1
@@ -13,6 +19,7 @@ class ParentsController < ApplicationController
   # GET /parents/new
   def new
     @parent = Parent.new
+    @students = Student.all.where(teacher_id: session[:teacher_id])
   end
 
   # GET /parents/1/edit
@@ -21,6 +28,7 @@ class ParentsController < ApplicationController
 
   # POST /parents
   def create
+    @student = Student.find_by_id(params[:student_id])
     @parent = Parent.new(parent_params)
 
     if @parent.save
@@ -53,6 +61,6 @@ class ParentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def parent_params
-      params.require(:parent).permit(:student_id, :name, :email, :password_digest)
+      params.require(:parent).permit(:student_id, :name, :email, :password, :password_confirmation)
     end
 end
