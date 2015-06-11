@@ -3,11 +3,14 @@ class GradesController < ApplicationController
 
   # GET /grades
   def index
+
     @students = Student.all.where(teacher_id: session[:teacher_id])
     @grades = []
+
     @students.each do |s|
       @grades += s.grades
     end
+    
   end
 
   # GET /grades/1
