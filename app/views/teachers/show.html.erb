@@ -15,13 +15,15 @@
     <strong>Students: </strong>
     <br>
     <% @students.each do |student| %>
-      <tr>
-        <td><%= student.name %></td>
-      </tr>
+      <table>
+        <tr>
+          <td><%= link_to "#{student.name}", student %></td>
+        </tr>
+      </table>
     <% end %>
   <% end%>
 </p>
 
 <%= link_to 'Home', root_path %> |
 <%= link_to 'Teacher Index', teachers_path %> |
-<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %> 
+<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %>
