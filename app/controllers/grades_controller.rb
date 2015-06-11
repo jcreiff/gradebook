@@ -1,6 +1,6 @@
 class GradesController < ApplicationController
   before_action :set_grade, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_teacher?, except: [:index, :show]
   # GET /grades
   def index
 
@@ -10,11 +10,17 @@ class GradesController < ApplicationController
     @students.each do |s|
       @grades += s.grades
     end
-    
+
   end
 
   # GET /grades/1
   def show
+    @grade = Grade.find_by_id(params[:id])
+    if session[:student_id]
+      redirect_to root_path, notice: 'Access Denied' unless @grade.student_id == session[:student_id]
+    elsif session[:parent_id]
+      redirect_to root_path, notice: 'Access Denied' unless  @grade.student.parents.first.student_id == session[:student_id]
+    end
   end
 
   # GET /grades/new
