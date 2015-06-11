@@ -22,6 +22,9 @@ class SessionsController < ApplicationController
 
   def logout
     session[:user_id] = nil
+    session[:teacher_id] = nil
+    session[:student_id] = nil
+    session[:parent_id] = nil
     redirect_to sessions_login_path, notice: "Logout Successful."
   end
 
