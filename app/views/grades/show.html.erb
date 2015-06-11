@@ -2,7 +2,7 @@
 
 <p>
   <strong>Student:</strong>
-  <%= @grade.student_id %>
+  <%= @grade.student.name%>
 </p>
 
 <p>
@@ -17,8 +17,9 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @grade.date %>
+  <%= @grade.date.strftime "%b %d, %Y" %>
 </p>
 
-<%= link_to 'Edit', edit_grade_path(@grade) %> |
-<%= link_to 'Back', grades_path %>
+<%= link_to 'Home', root_path %> |
+<%= link_to 'Grade Index', grades_path %> |
+<%= link_to 'Edit Grade', edit_grade_path(@grade) %>

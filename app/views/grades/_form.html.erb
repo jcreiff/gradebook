@@ -10,10 +10,9 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :student_id %><br>
-    <%= f.number_field :student_id %>
+  <div>
+    <%= f.label :student %><br>
+    <%= f.collection_select :student_id, @students, :id, :name, prompt: "" %>
   </div>
   <div class="field">
     <%= f.label :assignment_name %><br>

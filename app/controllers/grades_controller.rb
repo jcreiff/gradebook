@@ -13,14 +13,17 @@ class GradesController < ApplicationController
   # GET /grades/new
   def new
     @grade = Grade.new
+    @students = Student.all.where(teacher_id: session[:teacher_id])
   end
 
   # GET /grades/1/edit
   def edit
+    @students = Student.all.where(teacher_id: session[:teacher_id])
   end
 
   # POST /grades
   def create
+    @student = Student.find_by_id(params[:id])
     @grade = Grade.new(grade_params)
 
     if @grade.save
