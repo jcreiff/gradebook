@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  root 'teachers#home'
-
+  root 'sessions#home'
   get 'sessions/login'
   post 'sessions/login'
   get 'sessions/logout'

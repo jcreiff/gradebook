@@ -21,4 +21,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_teacher?
+    if session[:teacher_id]
+      return true
+    else
+      redirect_to root_path, notice: 'Access Denied'
+    end
+  end
 end

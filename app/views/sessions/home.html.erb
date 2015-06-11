@@ -1,3 +1,5 @@
+<p id="notice"><%= notice %></p>
+
 <%= link_to "Students", students_path  if session[:teacher_id] %>
 <%= link_to "Parents", parents_path if session[:teacher_id] %>
 <%= link_to "Teachers", teachers_path if session[:teacher_id] %>

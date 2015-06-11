@@ -28,5 +28,7 @@ class SessionsController < ApplicationController
     redirect_to sessions_login_path, notice: "Logout Successful."
   end
 
+  def home
+  end
 
 end
