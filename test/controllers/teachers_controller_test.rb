@@ -3,6 +3,7 @@ require 'test_helper'
 class TeachersControllerTest < ActionController::TestCase
   setup do
     @teacher = teachers(:one)
+    session[:teacher_id] = @teacher.id
   end
 
   test "should get index" do
@@ -18,7 +19,7 @@ class TeachersControllerTest < ActionController::TestCase
 
   test "should create teacher" do
     assert_difference('Teacher.count') do
-      post :create, teacher: { email: "test@email.com", name: @teacher.name, password_digest: @teacher.password_digest }
+      post :create, teacher: { email: Faker::Internet.email, name: @teacher.name, password: "teacher" }
     end
 
     assert_redirected_to teacher_path(assigns(:teacher))
