@@ -20,6 +20,6 @@
   <%= @grade.date.strftime "%b %d, %Y" %>
 </p>
 
-<%= link_to 'Home', root_path %> |
-<%= link_to 'Grade Index', grades_path %> |
-<%= link_to 'Edit Grade', edit_grade_path(@grade) %>
+<%= link_to 'Home', root_path %> 
+<%= link_to 'Grade Index', grades_path %>
+<%= link_to 'Edit Grade', edit_grade_path(@grade) if session[:teacher_id]%>

@@ -22,7 +22,7 @@
         <td><%= grade.date.strftime "%b %d, %Y" %></td>
         <td><%= link_to 'Show', grade %></td>
         <td><%= link_to 'Edit', edit_grade_path(grade) if session[:teacher_id]%></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } if session[:teacher_id]%></td>
+        <td><%= link_to 'Delete', grade, method: :delete, data: { confirm: 'Are you sure?' } if session[:teacher_id]%></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,5 +30,5 @@
 
 <br>
 
-<%= link_to 'Home', root_path %> |
-<%= link_to 'New Grade', new_grade_path %>
+<%= link_to 'Home', root_path %> 
+<%= link_to 'New Grade', new_grade_path if session[:teacher_id]%>
