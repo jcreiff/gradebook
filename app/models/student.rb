@@ -5,6 +5,8 @@ class Student < ActiveRecord::Base
   has_many :parents
   has_many :grades
 
+  default_scope {order(:name)}
+
   validates :teacher_id, presence: true
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
