@@ -10,6 +10,6 @@
   <div><% teacher = Teacher.find_by_id(session[:teacher_id])%>
   <%= "Welcome, #{teacher.name}!" if session[:teacher_id] %></div>
   <%= yield %>
-  <div><%= link_to "Logout", sessions_logout_path %><div>
+  <div><%= link_to "Logout", sessions_logout_path if session[:teacher_id] %><div>
 </body>
 </html>
