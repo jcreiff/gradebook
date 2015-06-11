@@ -32,6 +32,11 @@ class GradesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should show grade" do
+    get :show, id: @grade
+    assert_response :success
+  end
+
   test "should update grade" do
     patch :update, id: @grade, grade: { assignment_name: @grade.assignment_name, date: @grade.date, score: @grade.score, student_id: @grade.student_id }
     assert_redirected_to grade_path(assigns(:grade))

@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  teacher_id: teachers(:one).id
+  teacher: :one
   name: Sarah Ferrell
   email: smf@smf.com
   password_digest: <%= BCrypt::Password.create("studentone") %>
 
 two:
-  teacher_id: teachers(:two).id
+  teacher: :two
   name: Chris Givens
   email: csg@csg.com
   password_digest: <%= BCrypt::Password.create("studenttwo") %>
