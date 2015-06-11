@@ -7,9 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div><% teacher = Teacher.find_by_id(session[:teacher_id])%>
-  <%= "Welcome, #{teacher.name}!" if session[:teacher_id] %></div>
+  <h1>Gradebook</h1>
   <%= yield %>
-  <div><%= link_to "Logout", sessions_logout_path if session[:teacher_id] %><div>
+  <div><%= link_to "Logout", sessions_logout_path if session[:user_id] %><div>
 </body>
 </html>

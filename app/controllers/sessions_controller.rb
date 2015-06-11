@@ -1,9 +1,18 @@
 class SessionsController < ApplicationController
   def login
     if request.post?
-      teacher = Teacher.find_by_email(params[:email])
-      if teacher && teacher.authenticate(params[:password])
-        session[:teacher_id] = teacher.id
+      user = set_user(params[:email])
+      if user.class == Teacher && user.authenticate(params[:password])
+        session[:teacher_id] = user.id
+        session[:user_id] = user.id
+        redirect_to root_path, notice: "Login Successful."
+      elsif user.class == Student && user.authenticate(params[:password])
+        session[:student_id] = user.id
+        session[:user_id] = user.id
+        redirect_to root_path, notice: "Login Successful."
+      elsif user.class == Parent && user.authenticate(params[:password])
+        session[:parent_id] = user.id
+        session[:user_id] = user.id
         redirect_to root_path, notice: "Login Successful."
       else
         flash.now[:notice] = "Invalid Login. Please Try Again."
@@ -12,8 +21,9 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    session[:teacher_id] = nil
+    session[:user_id] = nil
     redirect_to sessions_login_path, notice: "Logout Successful."
   end
+
 
 end
