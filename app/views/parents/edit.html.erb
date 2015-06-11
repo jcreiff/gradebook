@@ -2,6 +2,6 @@
 
 <%= render 'form' %>
 
-<%= link_to 'Home', root_path %> |
-<%= link_to 'Parent Index', parents_path %> |
-<%= link_to 'Cancel', @parent %> 
+<%= link_to 'Home', root_path %>
+<%= link_to 'Parent Index', parents_path if session[:teacher_id]%> 
+<%= link_to 'Cancel', @parent %>

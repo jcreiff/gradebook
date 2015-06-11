@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_teacher?, except: [:show, :edit]
   # GET /students
   def index
     @students = Student.where(teacher_id: session[:teacher_id])

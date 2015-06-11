@@ -11,10 +11,12 @@
     </div>
   <% end %>
 
+<% if session[:teacher_id] %>
   <div>
     <%= f.label :student %><br>
     <%= f.collection_select :student_id, @students, :id, :name, prompt: "" %>
   </div>
+<% end %>
   <div class="field">
     <%= f.label :name %><br>
     <%= f.text_field :name %>

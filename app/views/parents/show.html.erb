@@ -18,5 +18,5 @@
 
 
 <%= link_to 'Home', root_path %> |
-<%= link_to 'Parent Index', parents_path %> |
+<%= link_to 'Parent Index', parents_path if session[:teacher_id]%> |
 <%= link_to 'Edit Parent', edit_parent_path(@parent) %>

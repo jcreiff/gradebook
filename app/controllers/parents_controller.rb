@@ -1,5 +1,6 @@
 class ParentsController < ApplicationController
   before_action :set_parent, only: [:show, :edit, :update, :destroy]
+  before_action :check_teacher?, except: [:show, :edit]
 
   # GET /parents
   def index
@@ -14,7 +15,14 @@ class ParentsController < ApplicationController
 
   # GET /parents/1
   def show
-    @students = Student.all.where(teacher_id: session[:teacher_id])
+    @parent = Parent.find_by_id(params[:id])
+
+    if session[:teacher_id]
+      @students = Student.all.where(teacher_id: session[:teacher_id])
+    else
+      redirect_to root_path, notice: 'Access Denied' unless @parent.id == session[:parent_id]
+    end
+
   end
 
   # GET /parents/new
@@ -25,7 +33,14 @@ class ParentsController < ApplicationController
 
   # GET /parents/1/edit
   def edit
-    @students = Student.all.where(teacher_id: session[:teacher_id])
+    @parent = Parent.find_by_id(params[:id])
+
+    if session[:teacher_id]
+      @students = Student.all.where(teacher_id: session[:teacher_id])
+    else
+      redirect_to root_path, notice: 'Access Denied' unless @parent.id == session[:parent_id]
+    end
+    
   end
 
   # POST /parents
