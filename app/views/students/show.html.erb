@@ -22,7 +22,7 @@
   <% end%>
 </p>
 
-<%= link_to 'Add Parent', new_parent_path(@student) %>
+<%= link_to 'Add Parent', new_parent_path(@student) if session[:teacher_id] %>
 
 <h1>Grades for <%= @student.name %></h1>
 
@@ -42,16 +42,16 @@
         <td><%= grade.assignment_name %></td>
         <td><%= grade.score %></td>
         <td><%= grade.date %></td>
-        <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-        <td><%= link_to 'Delete', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_grade_path(grade) if session[:teacher_id] %></td>
+        <td><%= link_to 'Delete', grade, method: :delete, data: { confirm: 'Are you sure?' } if session[:teacher_id] %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<%= link_to 'Add Grade', new_grade_path(@student) %>
+<%= link_to 'Add Grade', new_grade_path(@student) if session[:teacher_id] %>
 <br>
 
-<%= link_to 'Home', root_path %> |
-<%= link_to 'Student Index', students_path %> |
+<%= link_to 'Home', root_path %> 
+<%= link_to 'Student Index', students_path if session[:teacher_id] %>
 <%= link_to 'Edit Student', edit_student_path(@student) %>

@@ -8,8 +8,11 @@ class StudentsController < ApplicationController
 
   # GET /students/1
   def show
+    @student = Student.find_by_id(params[:id])
     @parents = Parent.where(student_id: @student.id)
     @grades = Grade.where(student_id: @student.id)
+
+    redirect_to root_path, notice: 'Access Denied' unless @student.id == session[:student_id]
   end
 
   # GET /students/new
@@ -19,6 +22,8 @@ class StudentsController < ApplicationController
 
   # GET /students/1/edit
   def edit
+    @student = Student.find_by_id(params[:id])
+    redirect_to root_path, notice: 'Access Denied' unless @student.id == session[:student_id]
   end
 
   # POST /students
