@@ -3,6 +3,7 @@ require 'test_helper'
 class TeachersControllerTest < ActionController::TestCase
   setup do
     @teacher = teachers(:one)
+    session[:user_id] = @teacher.id
     session[:teacher_id] = @teacher.id
   end
 

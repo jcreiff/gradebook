@@ -4,6 +4,7 @@ class StudentsControllerTest < ActionController::TestCase
   setup do
     @student = students(:one)
     session[:user_id] = @student.id
+    session[:student_id] = @student.id
   end
 
   test "should get index" do

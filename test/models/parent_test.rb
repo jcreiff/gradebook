@@ -7,9 +7,9 @@ class ParentTest < ActiveSupport::TestCase
   end
 
   test "email must be unique" do
-    p_one = Parent.new(email: Faker::Internet.email, password_digest: @one.password_digest,
+    p_one = Parent.new(email: Faker::Internet.email, password: "password",
         name: @one.name, student_id: @one.student_id)
-    p_two = Parent.new(email: @two.email, password_digest: @two.password_digest,
+    p_two = Parent.new(email: @two.email, password: "password",
         name: @two.name, student_id: @two.student_id)
 
     assert p_one.save
