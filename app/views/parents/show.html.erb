@@ -1,11 +1,6 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Student:</strong>
-  <%= @parent.student_id %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @parent.name %>
 </p>
@@ -16,9 +11,12 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @parent.password_digest %>
+  <strong>Student:</strong>
+  <%= @parent.student.name %>
 </p>
 
-<%= link_to 'Edit', edit_parent_path(@parent) %> |
-<%= link_to 'Back', parents_path %>
+
+
+<%= link_to 'Home', root_path %> |
+<%= link_to 'Parent Index', parents_path %> |
+<%= link_to 'Edit Parent', edit_parent_path(@parent) %>

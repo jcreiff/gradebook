@@ -14,6 +14,7 @@ class ParentsController < ApplicationController
 
   # GET /parents/1
   def show
+    @students = Student.all.where(teacher_id: session[:teacher_id])
   end
 
   # GET /parents/new
@@ -24,6 +25,7 @@ class ParentsController < ApplicationController
 
   # GET /parents/1/edit
   def edit
+    @students = Student.all.where(teacher_id: session[:teacher_id])
   end
 
   # POST /parents
