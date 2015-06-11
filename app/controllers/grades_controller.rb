@@ -3,14 +3,19 @@ class GradesController < ApplicationController
   before_action :check_teacher?, except: [:index, :show]
   # GET /grades
   def index
+    if session[:teacher_id]
+      @students = Student.all.where(teacher_id: session[:teacher_id])
+      @grades = []
 
-    @students = Student.all.where(teacher_id: session[:teacher_id])
-    @grades = []
-
-    @students.each do |s|
-      @grades += s.grades
+      @students.each do |s|
+        @grades += s.grades
+      end
+    elsif session[:student_id]
+      @grades = Grade.all.where(student_id: session[:student_id])
+    else
+      @parent = Parent.find_by_id(session[:parent_id])
+      @grades = Grade.all.where(student_id: @parent.student_id)
     end
-
   end
 
   # GET /grades/1
@@ -19,7 +24,7 @@ class GradesController < ApplicationController
     if session[:student_id]
       redirect_to root_path, notice: 'Access Denied' unless @grade.student_id == session[:student_id]
     elsif session[:parent_id]
-      redirect_to root_path, notice: 'Access Denied' unless  @grade.student.parents.first.student_id == session[:student_id]
+      redirect_to root_path, notice: 'Access Denied' unless  @grade.student.parents.first.id == session[:parent_id]
     end
   end
 

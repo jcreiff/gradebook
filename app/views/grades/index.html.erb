@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Student</th>
+      <th><%= "Student" if session[:teacher_id] %></th>
       <th>Assignment name</th>
       <th>Score</th>
       <th>Date</th>
@@ -16,13 +16,13 @@
   <tbody>
     <% @grades.each do |grade| %>
       <tr>
-        <td><%= grade.student.name %></td>
+        <td><%= grade.student.name if session[:teacher_id]%></td>
         <td><%= grade.assignment_name %></td>
         <td><%= grade.score %></td>
         <td><%= grade.date.strftime "%b %d, %Y" %></td>
         <td><%= link_to 'Show', grade %></td>
-        <td><%= link_to 'Edit', edit_grade_path(grade) %></td>
-        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Edit', edit_grade_path(grade) if session[:teacher_id]%></td>
+        <td><%= link_to 'Destroy', grade, method: :delete, data: { confirm: 'Are you sure?' } if session[:teacher_id]%></td>
       </tr>
     <% end %>
   </tbody>
