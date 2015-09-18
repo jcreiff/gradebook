@@ -1,9 +1,25 @@
-
-<p id="notice"><%= notice %></p>
-
-<%= form_tag %>
-<%= label_tag :email %>
-<%= text_field_tag :email %>
-<%= label_tag :password %>
-<%= password_field_tag :password %>
-<%= submit_tag "Login" %>
+<div class="jumbotron" id="welcome-background">
+  <div class="container">
+    <div class="row">
+      <h1 id="welcome">Welcome to Gradebook</h1>
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <div class="well well-lg" id="login-well">
+          <%= form_tag  do %>
+          <p id="notice"><%= notice %></p>
+          <div class="input-group">
+            <span class="input-group-addon glyphicon glyphicon-user"></span>
+            <%= text_field_tag :email, nil, placeholder: "Email", class: "form-control input-lg" %>
+          </div>
+          <div class="input-group">
+            <span class="input-group-addon glyphicon glyphicon-lock"></span>
+            <%= password_field_tag :password , nil, placeholder: "Password", class: "form-control input-lg"%>
+          </div><br/>
+          <div><%= submit_tag "Login", class: "btn btn-lg btn-block", id: "login-button"%></div><br/>
+          <% end %>
+        </div>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </div>
+</div>

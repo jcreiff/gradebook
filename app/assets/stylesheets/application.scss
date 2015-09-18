@@ -16,3 +16,48 @@
 
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ /*
+   ========================================
+   Entire App
+   ========================================
+ */
+ body {
+   background-color: #2B3C40;
+ }
+ #notice {
+   font-family: "PT Sans";
+   color: #2B3C40;
+   text-align: center;
+   font-size: 20px;
+ }
+ /*
+   ========================================
+   Login Page
+   ========================================
+ */
+ .jumbotron .container:before {
+   display: table;
+   height: 80px;
+   content: ""
+ }
+ #welcome {
+   text-align: center;
+   font-family: "PT Sans";
+   font-weight: bold;
+   color: white;
+ }
+ #welcome-background {
+   background-color: #2B3C40;
+   height: 100%;
+ }
+ #login-button {
+   background-color: #2B3C40;
+   color: white;
+   font-weight: 400;
+   font-family: "PT Sans";
+ }
+ #login-button:hover {
+   background-color: #384D52;
+   color: white;
+ }

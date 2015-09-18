@@ -9,3 +9,4 @@
 <%= link_to "Edit Personal Info", edit_teacher_path(session[:teacher_id]) if session[:teacher_id] %>
 <%= link_to "Edit Personal Info", edit_student_path(session[:student_id]) if session[:student_id] %>
 <%= link_to "Edit Personal Info", edit_parent_path(session[:parent_id]) if session[:parent_id] %>
+<%= link_to "Logout", sessions_logout_path %>
