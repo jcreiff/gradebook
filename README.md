@@ -19,3 +19,8 @@ personal information.
 3. `Parent`: Parents have a similar scope as students.  Each parent can login and
 track their own student's grades in a given class, but has no authorization to
 make changes beyond their personal information.
+
+
+(Also: Integration tests!)
+
+######*Assignment from Week 6 of The Iron Yard's Ruby on Rails course (Durham)*
