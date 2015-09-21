@@ -1,12 +1,2 @@
-<p id="notice"><%= notice %></p>
-
-<%= link_to "Students", students_path  if session[:teacher_id] %>
-<%= link_to "Parents", parents_path if session[:teacher_id] %>
-<%= link_to "Teachers", teachers_path if session[:teacher_id] %>
-<%= link_to "Grades", grades_path if session[:teacher_id] %>
-<%= link_to "My Grades", grades_path if session[:student_id] %>
-<%= link_to "My Student's Grades", grades_path if session[:parent_id] %>
-<%= link_to "Edit Personal Info", edit_teacher_path(session[:teacher_id]) if session[:teacher_id] %>
-<%= link_to "Edit Personal Info", edit_student_path(session[:student_id]) if session[:student_id] %>
-<%= link_to "Edit Personal Info", edit_parent_path(session[:parent_id]) if session[:parent_id] %>
-<%= link_to "Logout", sessions_logout_path %>
+<div class="col-md-9">
+</div>

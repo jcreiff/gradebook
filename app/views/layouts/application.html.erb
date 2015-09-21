@@ -1,15 +1,31 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Gradebook</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <% if session[:user_id] %>
-    <h1>Gradebook</h1>
-  <% end %>
-  <%= yield %>
-</body>
+  <head>
+    <title>Gradebook</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="row">
+    <% if session[:user_id] %>
+    <div class="col-md-2" id="nav-holder">
+      <navbar>
+        <h1 id="navheader"><%= link_to "Gradebook", root_path %></h1>
+        <div class="nav-link"><%= link_to "Students", students_path  if session[:teacher_id] %></div>
+        <div class="nav-link"><%= link_to "Parents", parents_path if session[:teacher_id] %></div>
+        <div class="nav-link"><%= link_to "Teachers", teachers_path if session[:teacher_id] %></div>
+        <div class="nav-link"><%= link_to "Grades", grades_path if session[:teacher_id] %></div>
+        <div class="nav-link"><%= link_to "My Grades", grades_path if session[:student_id] %></div>
+        <div class="nav-link"><%= link_to "My Student's Grades", grades_path if session[:parent_id] %></div>
+        <div class="nav-link"><%= link_to "Edit Personal Info", edit_teacher_path(session[:teacher_id]) if session[:teacher_id] %></div>
+        <div class="nav-link"><%= link_to "Edit Personal Info", edit_student_path(session[:student_id]) if session[:student_id] %></div>
+        <div class="nav-link"><%= link_to "Edit Personal Info", edit_parent_path(session[:parent_id]) if session[:parent_id] %></div>
+        <div class="nav-link"><%= link_to "Logout", sessions_logout_path %></div>
+      </navbar>
+    </div>
+    <% end %>
+    <%= yield %>
+    </div>
+  </body>
 </html>
