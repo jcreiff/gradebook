@@ -77,12 +77,25 @@
  .nav-link {
    line-height: 40px;
    width: 100%;
- }
- .nav-link a{
-   color: white;
-   font-size: 16px;
+   & a {
+     color: white;
+     font-size: 16px;
+   }
  }
  .nav-link:hover, #navheader:hover, .nav-link a:hover, #navheader a:hover{
    text-decoration: none;
    background-color: #384D52;
+ }
+ /*
+   ========================================
+   Tables
+   ========================================
+ */
+ table a {
+   font-family: "PT Sans";
+   font-size: 14px;
+   &:hover {
+    text-decoration: none;
+    background-color: inherit;
+   }
  }

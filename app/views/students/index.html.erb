@@ -1,9 +1,9 @@
 <div class="col-md-9">
 <!-- <p id="notice"><%= notice %></p> -->
 
-<h1>Student Index</h1>
+<h1>Students</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
@@ -15,19 +15,17 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.name %></td>
-        <td><%= student.email %></td>
-        <td><%= link_to 'Show', student %></td>
+        <td><%= link_to "#{student.name}", student %></td>
+        <td><%= mail_to "#{student.email}" %></td>
         <td><%= link_to 'Add Grade', new_grade_path %></td>
         <td><%= link_to 'Add Parent', new_parent_path %></td>
         <td><%= link_to 'Delete', student, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <tr>
+      <td><%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_student_path %></td>
+    <tr>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'Home', root_path %> |
-<%= link_to 'New Student', new_student_path %>
 </div>
