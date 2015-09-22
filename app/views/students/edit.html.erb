@@ -1,7 +1,5 @@
-<h1>Editing Student</h1>
+<div class="col-md-9">
+  <h1 class="form-header">Editing Student</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Home', root_path %> 
-<%= link_to 'Student Index', students_path if session[:teacher_id]%>
-<%= link_to 'Cancel', @student %>
+  <%= render 'form' %>
+</div>
