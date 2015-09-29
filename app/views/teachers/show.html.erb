@@ -1,29 +1,29 @@
-<div class="col-md-9">
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
-
-<p>
-  <strong>Email:</strong>
-  <%= @teacher.email %>
-</p>
-
-<p>
-  <% if @students %>
-    <strong>Students: </strong>
-    <br>
-    <% @students.each do |student| %>
-      <table>
+<section class="col-md-9">
+  <h1><%= @teacher.name %></h1>
+  <h4><%= mail_to "#{@teacher.email}"%></h3>
+</section>
+<section class="col-md-4">
+  <% if @parents != [] %>
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Student</th>
+          <th>Email</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @students.each do |student| %>
         <tr>
           <td><%= link_to "#{student.name}", student %></td>
+          <td><%= mail_to "#{student.email}" %></td>
+        <tr>
+      <% end %>
+        <tr>
+          <td colspan="2"><%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_student_path %></td>
         </tr>
-      </table>
-    <% end %>
+      </tbody>
+    </table>
   <% end%>
-</p>
-
-<%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %>
-</div>
+  <%= link_to 'Edit Teacher', edit_teacher_path(@teacher) %>
+</section>

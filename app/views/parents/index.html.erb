@@ -1,5 +1,5 @@
 <div class="col-md-9">
-<!-- <p id="notice"><%= notice %></p> -->
+<p id="notice"><%= notice %></p>
 
 <h1>Parents</h1>
 
@@ -16,7 +16,7 @@
   <tbody>
     <% @parents.each do |parent| %>
       <tr>
-        <td><%= link_to "#{parent.name}", parent %></td>
+        <td><%= parent.name %></td>
         <td><%= mail_to "#{parent.email}" %></td>
         <td><%= parent.student.name %></td>
         <td><%= link_to 'Edit Parent', edit_parent_path(parent) %></td>
