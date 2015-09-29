@@ -4,13 +4,7 @@ class ParentsController < ApplicationController
 
   # GET /parents
   def index
-    @students = Student.all.where(teacher_id: session[:teacher_id])
-    @parents = []
-
-    @students.each do |s|
-      @parents += s.parents
-    end
-
+    @parents = Parent.joins(:student).where(students: {teacher_id: session[:teacher_id]}).paginate(page: params[:page], per_page: 20)
   end
 
   # GET /parents/1
@@ -40,7 +34,7 @@ class ParentsController < ApplicationController
     else
       redirect_to root_path, notice: 'Access Denied' unless @parent.id == session[:parent_id]
     end
-    
+
   end
 
   # POST /parents

@@ -4,17 +4,12 @@ class GradesController < ApplicationController
   # GET /grades
   def index
     if session[:teacher_id]
-      @students = Student.all.where(teacher_id: session[:teacher_id])
-      @grades = []
-
-      @students.each do |s|
-        @grades += s.grades
-      end
+      @grades = Grade.joins(:student).where(students: {teacher_id: session[:teacher_id]}).paginate(page: params[:page], per_page: 20)
     elsif session[:student_id]
-      @grades = Grade.all.where(student_id: session[:student_id])
+      @grades = Grade.all.where(student_id: session[:student_id]).paginate(page: params[:page], per_page: 20)
     else
       @parent = Parent.find_by_id(session[:parent_id])
-      @grades = Grade.all.where(student_id: @parent.student_id)
+      @grades = Grade.all.where(student_id: @parent.student_id).paginate(page: params[:page], per_page: 20)
     end
   end
 
