@@ -15,16 +15,12 @@
     <%= f.collection_select :student_id, @students, :id, :name, prompt: "" %>
   </div>
   <div class="field">
-    <%= f.label :assignment_name %><br>
-    <%= f.text_field :assignment_name %>
+    <%= f.label :assignment_id %><br>
+    <%= f.text_field :assignment_id %>
   </div>
   <div class="field">
     <%= f.label :score %><br>
     <%= f.number_field :score %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
   </div>
   <div class="actions">
     <%= f.submit %>

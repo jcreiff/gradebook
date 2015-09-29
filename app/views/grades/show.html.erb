@@ -6,8 +6,8 @@
 </p>
 
 <p>
-  <strong>Assignment name:</strong>
-  <%= @grade.assignment_name %>
+  <strong>Assignment:</strong>
+  <%= @grade.assignment_id %>
 </p>
 
 <p>
@@ -15,11 +15,7 @@
   <%= @grade.score %>
 </p>
 
-<p>
-  <strong>Date:</strong>
-  <%= @grade.date.strftime "%b %d, %Y" %>
-</p>
 
-<%= link_to 'Home', root_path %> 
+<%= link_to 'Home', root_path %>
 <%= link_to 'Grade Index', grades_path %>
 <%= link_to 'Edit Grade', edit_grade_path(@grade) if session[:teacher_id]%>

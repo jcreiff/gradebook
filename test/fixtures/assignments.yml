@@ -1,11 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  student: :one
-  assignment: :one
-  score: 95
+  name: MyString
+  teacher_id: 1
 
 two:
-  student: :two
-  assignment: :two
-  score: 93
+  name: MyString
+  teacher_id: 1

@@ -2,6 +2,7 @@ class Teacher < ActiveRecord::Base
 
   has_secure_password
   has_many :students
+  has_many :assignments
 
   default_scope {order(:name)}
 
