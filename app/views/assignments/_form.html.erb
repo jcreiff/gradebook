@@ -1,4 +1,5 @@
-<%= form_for(@assignment) do |f| %>
+<div class="well" id="form-well">
+  <%= form_for(@assignment) do |f| %>
   <% if @assignment.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@assignment.errors.count, "error") %> prohibited this assignment from being saved:</h2>
@@ -11,15 +12,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <%= f.hidden_field :teacher_id, :value => session[:teacher_id]%>
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
-    <%= f.label :teacher_id %><br>
-    <%= f.number_field :teacher_id %>
+  <div class="form-group">
+    <%= f.label :date %><br>
+    <%= f.date_field :date, class: "form-control" %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-regular"%>
   </div>
 <% end %>
+</div>

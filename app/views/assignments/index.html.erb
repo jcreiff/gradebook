@@ -1,12 +1,14 @@
+<div class="col-md-9">
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Assignments</h1>
 
-<table>
+<table class="table table-hover">
   <thead>
     <tr>
       <th>Name</th>
-      <th>Teacher</th>
+      <th>Date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -15,15 +17,17 @@
     <% @assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.name %></td>
-        <td><%= assignment.teacher_id %></td>
-        <td><%= link_to 'Show', assignment %></td>
-        <td><%= link_to 'Edit', edit_assignment_path(assignment) %></td>
+        <td><%= assignment.date %></td>
+        <td><%= link_to 'View Grades', assignment %></td>
+        <td><%= link_to 'Edit Grades', edit_assignment_path(assignment) %></td>
         <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    <tr>
+      <td colspan="5"><%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_assignment_path %></td>
+    </tr>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Assignment', new_assignment_path %>
+</div>

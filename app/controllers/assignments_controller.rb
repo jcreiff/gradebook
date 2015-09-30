@@ -1,9 +1,10 @@
 class AssignmentsController < ApplicationController
   before_action :set_assignment, only: [:show, :edit, :update, :destroy]
-
+  before_action :check_teacher?
   # GET /assignments
+
   def index
-    @assignments = Assignment.all
+    @assignments = Assignment.where(teacher_id: session[:teacher_id]).paginate(page: params[:page], per_page: 20)
   end
 
   # GET /assignments/1

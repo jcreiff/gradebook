@@ -15,7 +15,7 @@
         <div class="nav-link"><%= link_to "Students", students_path  if session[:teacher_id] %></div>
         <div class="nav-link"><%= link_to "Parents", parents_path if session[:teacher_id] %></div>
         <div class="nav-link"><%= link_to "Teachers", teachers_path if session[:teacher_id] %></div>
-        <div class="nav-link"><%= link_to "Grades", grades_path if session[:teacher_id] %></div>
+        <div class="nav-link"><%= link_to "Assignments", assignments_path if session[:teacher_id] %></div>
         <div class="nav-link"><%= link_to "My Grades", grades_path if session[:student_id] %></div>
         <div class="nav-link"><%= link_to "My Student's Grades", grades_path if session[:parent_id] %></div>
         <div class="nav-link"><%= link_to "Edit Personal Info", edit_teacher_path(session[:teacher_id]) if session[:teacher_id] %></div>
