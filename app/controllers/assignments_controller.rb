@@ -26,7 +26,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
 
     if @assignment.save
-      redirect_to @assignment, notice: 'Assignment was successfully created.'
+      redirect_to edit_assignment_path(@assignment), notice: 'Assignment was successfully created.'
     else
       render :new
     end
@@ -35,7 +35,10 @@ class AssignmentsController < ApplicationController
   # PATCH/PUT /assignments/1
   def update
     if @assignment.update(assignment_params)
-      redirect_to @assignment, notice: 'Assignment was successfully updated.'
+      respond_to do |format|
+        format.html {redirect_to @assignment, notice: 'Assignment was successfully updated.'}
+        format.js {redirect_to edit_assignment_path(@assignment), notice: 'Assignment was successfully updated.'}
+      end
     else
       render :edit
     end

@@ -49,7 +49,7 @@ class GradesController < ApplicationController
   # PATCH/PUT /grades/1
   def update
     if @grade.update(grade_params)
-      redirect_to @grade, notice: 'Grade was successfully updated.'
+      redirect_to @grade.assignment, notice: 'Grade was successfully updated.'
     else
       render :edit
     end

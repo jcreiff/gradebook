@@ -17,7 +17,7 @@
     <% @assignments.each do |assignment| %>
       <tr>
         <td><%= assignment.name %></td>
-        <td><%= assignment.date %></td>
+        <td><%= assignment.date.strftime "%b %d, %Y" %></td>
         <td><%= link_to 'View Grades', assignment %></td>
         <td><%= link_to 'Edit Grades', edit_assignment_path(assignment) %></td>
         <td><%= link_to 'Destroy', assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
