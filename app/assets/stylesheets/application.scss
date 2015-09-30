@@ -91,6 +91,27 @@
  }
  /*
    ========================================
+   Home Page
+   ========================================
+ */
+ #top-left, #top-right, #bottom-left, #bottom-right {
+   height: 40vh;
+   width: 40%;
+   margin: 4em 0px 0px 5em;
+   background-color: white;
+   box-shadow: 1px 2px 5px gray;
+   text-align: center;
+ }
+
+ .fp {
+   color: #2B3C40;
+   font-size: 100px;
+ }
+ #top-left .fp, #bottom-right .fp {
+   padding-top: 10px;
+ }
+ /*
+   ========================================
    Tables
    ========================================
  */
@@ -110,6 +131,7 @@
 #form-well {
   width: 50%;
   margin: auto;
+  box-shadow: 1px 2px 5px gray;
 }
 #grade-edit-form {
   margin: 0px 0px 10px 50px;
