@@ -18,6 +18,7 @@ class AssignmentsController < ApplicationController
 
   # GET /assignments/1/edit
   def edit
+    @assignment.grades.build
   end
 
   # POST /assignments
@@ -54,6 +55,7 @@ class AssignmentsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def assignment_params
-      params.require(:assignment).permit(:name, :teacher_id)
+      params.require(:assignment).permit(:name, :teacher_id, :date, grades_attributes:
+        [:id, :assignment_id, :student_id, :score, :_destroy])
     end
 end
