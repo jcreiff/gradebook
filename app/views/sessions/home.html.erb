@@ -1,18 +1,62 @@
 <div class="col-md-9">
   <div class="row">
     <div class="col-md-4" id="top-left">
-      <span class="fp glyphicon glyphicon-user"></span>
+      <span class="fp glyphicon glyphicon-education"></span>
+      <h2>Students</h2>
+      <div class="row">
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-th-list"></i>'.html_safe, students_path %>
+          <h4><%= link_to "All", students_path, class: "text" %></h4>
+        </div>
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_student_path %>
+          <h4><%= link_to "New", new_student_path, class: "text"%></h4>
+        </div>
+      </div>
     </div>
     <div class="col-md-4" id="top-right">
-      <span class="fp glyphicon glyphicon-education"></span>
+      <span class="fp glyphicon glyphicon-user"></span>
+      <h2>Parents</h2>
+      <div class="row">
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-th-list"></i>'.html_safe, parents_path %>
+          <h4><%= link_to "All", parents_path, class: "text" %></h4>
+        </div>
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_parent_path %>
+          <h4><%= link_to "New", new_parent_path, class: "text"%></h4>
+        </div>
+      </div>
     </div>
   </div>
   <div class="row">
     <div class="col-md-4" id="bottom-left">
       <span class="fp glyphicon glyphicon-check"></span>
+      <h2>Assignments</h2>
+      <div class="row">
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-th-list"></i>'.html_safe, assignments_path %>
+          <h4><%= link_to "All", assignments_path, class: "text" %></h4>
+        </div>
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-plus"></i>'.html_safe, new_assignment_path %>
+          <h4><%= link_to "New", new_assignment_path, class: "text"%></h4>
+        </div>
+      </div>
     </div>
     <div class="col-md-4" id="bottom-right">
       <span class="fp glyphicon glyphicon-pencil"></span>
+      <h2>My Account</h2>
+      <div class="row">
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-th-list"></i>'.html_safe, edit_teacher_path(session[:teacher_id]) %>
+          <h4><%= link_to "Settings", edit_teacher_path(session[:teacher_id]), class: "text" %></h4>
+        </div>
+        <div class="home-links col-md-2">
+          <%= link_to '<i class="glyphicon glyphicon-log-out"></i>'.html_safe, sessions_logout_path %>
+          <h4><%= link_to "Logout", sessions_logout_path, class: "text" %></h4>
+        </div>
+      </div>
     </div>
   </div>
 </div>

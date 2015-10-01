@@ -97,7 +97,7 @@
  #top-left, #top-right, #bottom-left, #bottom-right {
    height: 40vh;
    width: 40%;
-   margin: 4em 0px 0px 5em;
+   margin: 3.5em 0px 0px 5em;
    background-color: white;
    box-shadow: 1px 2px 5px gray;
    text-align: center;
@@ -107,9 +107,24 @@
    color: #2B3C40;
    font-size: 100px;
  }
- #top-left .fp, #bottom-right .fp {
+ #top-right .fp, #bottom-right .fp {
    padding-top: 10px;
  }
+ .home-links{
+   padding: 2em;
+   margin-left: 20%;
+   & a {
+     color: #2B3C40;
+     font-size: 30px;
+   }
+   & a.text {
+     font-size: 20px;
+   }
+ }
+ #top-right .home-links, #bottom-right .home-links {
+   padding-top: 1.4em;
+ }
+
  /*
    ========================================
    Tables
